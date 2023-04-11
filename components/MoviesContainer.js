@@ -3,10 +3,7 @@ import React from "react";
 
 const MoviesContainer = ({ title, poster_path, releaseDate, rating, onPress }) => {
     return (
-        <TouchableOpacity
-            className=" space-y-2"
-            onPress={onPress}
-        >
+        <TouchableOpacity   onPress={onPress}  >
             <View
                 className={`w-32 h-36 p-2  shadow-sm rounded-full items-center justify-center`}
             >
