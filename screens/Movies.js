@@ -43,12 +43,9 @@ const Movies = () => {
         });
     }, []);
 
-
-    const handleMoviePress = (movieId) => {
-        // Handle the movie press event here
-        console.log("Movie pressed: ", movieId);
+    const handleMoviePress = (id) => {
+        navigation.navigate('MovieInfo', { movieId: id });
     };
-
 
     return (
         <SafeAreaView className="flex-1 bg-white relative">

@@ -4,6 +4,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import Movies from './screens/Movies.js';
+import MovieInfo from './components/MovieInfo';
 
 
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Navigator screenOptions={{headerTitleAlign: 'center'}}>
           <Stack.Screen   name="Home" component={HomeScreen} />
           <Stack.Screen   name="Movies" component={Movies} />
+          <Stack.Screen   name="MovieInfo" component={MovieInfo} />
         </Stack.Navigator>
       </NavigationContainer>
     </TailwindProvider>

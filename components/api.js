@@ -5,22 +5,30 @@ export const API_URL_UPCOMING = `https://api.themoviedb.org/3/movie/upcoming?api
 export const API_URL_TOP_RATED = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
 
 export const fetchPopularMovies = () => {
-  return fetch(API_URL_POPULAR)
-    .then((response) => response.json())
-    .then((json) => json.results)
-    .catch((error) => console.error(error));
+    return fetch(API_URL_POPULAR)
+        .then((response) => response.json())
+        .then((json) => json.results)
+        .catch((error) => console.error(error));
 };
 
 export const fetchUpcomingMovies = () => {
-  return fetch(API_URL_UPCOMING)
-    .then((response) => response.json())
-    .then((json) => json.results)
-    .catch((error) => console.error(error));
+    return fetch(API_URL_UPCOMING)
+        .then((response) => response.json())
+        .then((json) => json.results)
+        .catch((error) => console.error(error));
 };
 
 export const fetchTopRatedMovies = () => {
-  return fetch(API_URL_TOP_RATED)
-    .then((response) => response.json())
-    .then((json) => json.results)
-    .catch((error) => console.error(error));
+    return fetch(API_URL_TOP_RATED)
+        .then((response) => response.json())
+        .then((json) => json.results)
+        .catch((error) => console.error(error));
 };
+export const fetchMovieDetails = (movieId) => {
+    const API_URL_MOVIE = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
+    return fetch(API_URL_MOVIE)
+      .then((response) => response.json())
+      .catch((error) => console.error(error));
+  };
+  
+  
