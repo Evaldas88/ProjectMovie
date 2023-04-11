@@ -3,10 +3,11 @@ import React, { useLayoutEffect, useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import MoviesContainer from '../components/MoviesContainer';
 
+//Top movies 
 const API_URL = "https://api.themoviedb.org/3/movie/popular?api_key=484eecec06bfa588a660f7daeb26a3de";
 
 const Movies = () => {
-    const [movies, setMovies] = useState([]);
+    const [moviesTop, setMoviesTop] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigation = useNavigation();
 
@@ -16,11 +17,12 @@ const Movies = () => {
         })
     }, [])
 
+    //Top movies 
     useEffect(() => {
         fetch(API_URL)
             .then(response => response.json())
             .then(json => {
-                setMovies(json.results);
+                setMoviesTop(json.results);
                 setLoading(false);
             })
             .catch(error => console.error(error))
@@ -36,7 +38,7 @@ const Movies = () => {
         <SafeAreaView className="flex-1 bg-white relative">
             <View className="flex-col px-6 mt-16 items-center justify-between">
                 <View>
-                    <Text className="text-[30px] text-[#0B646B]">Top Movies</Text>
+                    <Text className="text-[30px] text-[#0B646B] mb-5">Top Movies</Text>
                 </View>
             </View>
             {/* Menu Container */}
@@ -44,7 +46,7 @@ const Movies = () => {
                 {loading ? (
                     <Text>Loading...</Text>
                 ) : (
-                    movies?.map(movie => (
+                    moviesTop?.map(movie => (
                         <MoviesContainer
                             key={movie.id}
                             title={movie.title}
