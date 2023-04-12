@@ -63,7 +63,7 @@ const MovieInfo = () => {
                 {/* top rated movies section */}
                 <View className="flex-col items-center justify-between">
                     <View>
-                        <Text className="text-[22px] text-[#0B646B] mt-12 ">Top Rated Movies</Text>
+                        <Text className="text-[22px] text-[#0B646B] mt-12 ">Similar movies</Text>
                     </View>
                 </View>
             </ScrollView>
