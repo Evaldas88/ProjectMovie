@@ -38,3 +38,10 @@ export const fetchMovieDetails = (movieId) => {
     .catch((error) => console.error(error));
   };
   
+  export const fetchRelatedMovies = (movieId) => {
+    const API_URL_SIMILAR = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${API_KEY}&language=en-US&page=1`;
+    return fetch(API_URL_SIMILAR)
+      .then((response) => response.json())
+      .catch((error) => console.error(error));
+  };
+  

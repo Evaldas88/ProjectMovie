@@ -17,9 +17,9 @@ const HomeScreen = () => {
             {/* First Section */}
             <View className="flex-row px-6 mt-16 items-center space-x-2">
                 <View className="w-16 h-16 bg-black rounded-full items-center justify-center" >
-                    <Text className="text-[#4DABB7] text-3xl font-semibold">Go</Text>
+                    <Text className="text-[#4DABB7] text-3xl font-semibold">ES</Text>
                 </View>
-                <Text className=" text-[#2A2B4B] text-3xl font-semibold">Movie</Text>
+                <Text className=" text-[#2A2B4B] text-3xl font-semibold">Movie Project App</Text>
             </View>
             {/* Second Section */}
 

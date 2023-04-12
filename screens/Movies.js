@@ -23,6 +23,7 @@ const Movies = () => {
         fetchPopularMovies().then((movies) => {
             setPopularMovies(movies);
             setLoading(false);
+            
         });
     }, []);
 
