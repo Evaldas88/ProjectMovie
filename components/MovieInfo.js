@@ -23,8 +23,7 @@ const MovieInfo = () => {
         fetchMovieVideo(movieId).then((videoData) => {
           const youtubeKey = videoData.results[0].key;
           navigation.navigate('VideoPlayer', { youtubeKey: youtubeKey });
-          console.log(youtubeKey)
-        });
+         });
       };
 
     return (

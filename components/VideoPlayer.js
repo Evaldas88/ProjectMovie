@@ -1,19 +1,23 @@
-import React from 'react';
-import { SafeAreaView } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { SafeAreaView, ScrollView, TouchableOpacity, View, Text } from 'react-native';
 import WebView from 'react-native-webview';
 
 const VideoPlayer = ({ route }) => {
     const { youtubeKey } = route.params;
-    console.log(youtubeKey)
 
     return (
         <SafeAreaView className="flex-1">
-            <WebView
-                className="w-full h-1"
-                javaScriptEnabled={true}
-                domStorageEnabled={true}
-                source={{ uri: `https://www.youtube.com/embed/${youtubeKey}` }}
-            />
+            <ScrollView className="flex-1" >
+                <View className="flex-1 mt-44">
+                    <WebView
+                        className="w-full h-[300px]"
+                        javaScriptEnabled={true}
+                        domStorageEnabled={true}
+                        mediaPlaybackRequiresUserAction={false}
+                        source={{ uri: `https://www.youtube.com/embed/${youtubeKey}?controls=1` }}
+                    />
+                </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
