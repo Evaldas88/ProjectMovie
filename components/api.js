@@ -31,4 +31,10 @@ export const fetchMovieDetails = (movieId) => {
       .catch((error) => console.error(error));
   };
   
+  export const fetchMovieVideo = (movieId) => {
+    const API_URL_VIDEO = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`;
+    return fetch(API_URL_VIDEO)
+    .then((response) => response.json())
+    .catch((error) => console.error(error));
+  };
   
