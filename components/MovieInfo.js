@@ -21,11 +21,11 @@ const MovieInfo = () => {
     
     const moviePlay = () => {
         fetchMovieVideo(movieId).then((videoData) => {
-          const youtubeUrl = `https://www.youtube.com/watch?v=${videoData.results[0].key}`;
-          navigation.navigate('VideoPlayer', { videoUrl: youtubeUrl });
+          const youtubeKey = videoData.results[0].key;
+          navigation.navigate('VideoPlayer', { youtubeKey: youtubeKey });
+          console.log(youtubeKey)
         });
       };
-      
 
     return (
         < SafeAreaView className="flex-1 bg-white relative">
