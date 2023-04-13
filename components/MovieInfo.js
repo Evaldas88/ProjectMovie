@@ -5,6 +5,8 @@ import { fetchMovieDetails, fetchMovieVideo, fetchRelatedMovies } from '../compo
 import { SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import MoviesContainer from './MoviesContainer';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import { handleSignOut } from '../screens/LogOut';
 
 const MovieInfo = () => {
     const [movieDetails, setMovieDetails] = useState([]);
@@ -19,16 +21,16 @@ const MovieInfo = () => {
     useEffect(() => {
         setLoading(true);
         fetchMovieDetails(movieId).then((movies) => {
-          setMovieDetails(movies);
-          setLoading(false);
+            setMovieDetails(movies);
+            setLoading(false);
         });
-      
+
         fetchRelatedMovies(movieId).then((movies) => {
-          setRelatedMovies(movies.results);
-          setLoading(false);
+            setRelatedMovies(movies.results);
+            setLoading(false);
         });
-      }, [movieId]);
-      
+    }, [movieId]);
+
     const moviePlay = () => {
         fetchMovieVideo(movieId).then((videoData) => {
             const youtubeKey = videoData.results[0].key;
@@ -45,7 +47,15 @@ const MovieInfo = () => {
                 {loading ? (
                     <Text>Loading...</Text>
                 ) : (
-                    <View className="flex-1 relative bg-white shadow-lg">
+                    <View className="flex-1   bg-white shadow-lg">
+                        <View>
+                            <View className=" flex-wrap content-end    mt-2 h-4 w-2/3  ">
+                                <TouchableOpacity className=" flex-wrap  " onPress={() => handleSignOut(navigation)}>
+                                    <AntDesign className="text-red-800" name='login' />
+                                    <Text className="text-[#4DABB7] text-center ml-1  text-[12px]">Log out</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
                         <Image
                             source={{ uri: `https://image.tmdb.org/t/p/original/${movieDetails.poster_path}` }}
                             className="w-full h-56"
@@ -55,8 +65,8 @@ const MovieInfo = () => {
                             <Text className="text-left text-[22px] text-[#0B646B] mb-4">Description</Text>
                             <Text className="text-[12px] text-[#163d40]">{movieDetails.overview}</Text>
                         </View>
-                        <TouchableOpacity onPress={moviePlay} style={{ backgroundColor: 'red', padding: 10 }}>
-                            <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>PLAY TRAILER</Text>
+                        <TouchableOpacity onPress={moviePlay}  className="bg-red-500  p-2">
+                            <Text className="text-white font-semibold text-center" >PLAY TRAILER</Text>
                         </TouchableOpacity>
                     </View>
                 )}

@@ -1,45 +1,39 @@
 
-    import React, { useLayoutEffect } from 'react'
-    import { useNavigation } from '@react-navigation/native'
-    import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
-    import * as Animatable from 'react-native-animatable';
-    import { auth } from '../firebase';
+import React, { useLayoutEffect } from 'react'
+import { useNavigation } from '@react-navigation/native'
+import { SafeAreaView, View, Text, TouchableOpacity, Image } from 'react-native';
+import * as Animatable from 'react-native-animatable';
+import { auth } from '../firebase';
+import { Logo } from '../assets';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import { handleSignOut } from './LogOut';
+
+const HomeScreen = () => {
+
+    const navigation = useNavigation();
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerShown: false,
+        })
+    }, [])
     
-    const HomeScreen = () => {
-    
-        const navigation = useNavigation();
-        useLayoutEffect(() => {
-            navigation.setOptions({
-                headerShown: false,
-            })
-        }, [])
-    
-        const navigation1 = useNavigation();
-    
-        const handleSignOut = () => {
-            auth
-            .signOut()
-            .then(() =>{
-                navigation1.replace('Login')
-            })
-            .catch(error => alert(error.message))
-        }
-    
-    
-    
-    
-        return (
-            <SafeAreaView className="bg-white  flex-1 relative">
-                {/* First Section */}
-                <View className="flex-row px-6 mt-16 items-center space-x-2">
-                    <View className=" flex-1 w-3 h-16 bg-black rounded-full items-center justify-center" >
-                        <Text className="text-white text-[12px] font-semibold">Email: {auth.currentUser?.email} </Text>
-                        <TouchableOpacity onPress={handleSignOut}>
-                     <Text className="text-[#4DABB7] text-[12px]">Log out</Text>
+    return (
+        <SafeAreaView className="bg-white  flex-1 relative">
+            {/* First Section */}
+            <View className="flex-row px-6 mt-16  items-center space-x-2">
+                <View className="items-center  content-center">
+                    <View className=" flex-1 w-28 h-6 bg-[#4DABB7] rounded-2xl items-center justify-center" >
+                        <Text className="text-white text-[8px] font-semibold">User: {auth.currentUser?.email} </Text>
+                    </View>
+                    <View className=" flex-wrap   content-center   mt-2 h-4 w-2/3  ">
+                        <TouchableOpacity  className=" flex-wrap  " onPress={() => handleSignOut(navigation)}>
+                            <AntDesign className="text-red-800" name='login' />
+                            <Text className="text-[#4DABB7] text-center ml-1  text-[12px]">Log out</Text>
                         </TouchableOpacity>
                     </View>
-                    <Text className=" text-[#2A2B4B] text-3xl font-semibold">Movie App</Text>
                 </View>
+                <Text className=" text-[#2A2B4B] text-3xl font-semibold">Movie App</Text>
+            </View>
             {/* Second Section */}
             <View className="px-6 mt-8 space-y-3">
             </View>
@@ -51,9 +45,7 @@
                 <Animatable.Image
                     animation="pulse"
                     easing="ease-in-out"
-                    source={{
-                        uri: "https://cdn.pixabay.com/photo/2015/06/30/08/07/lens-826308_1280.jpg",
-                    }}
+                    source={Logo}
                     className="w-[350px] h-[350px] object-cover  rounded-full" />
                 <TouchableOpacity
                     onPress={() => navigation.navigate("Movies")}

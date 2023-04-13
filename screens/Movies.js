@@ -1,8 +1,10 @@
-import { View, Text, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView,TouchableOpacity } from 'react-native';
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import MoviesContainer from '../components/MoviesContainer';
 import { fetchPopularMovies, fetchUpcomingMovies, fetchTopRatedMovies } from '../components/api';
+import { handleSignOut } from './LogOut';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 
 const Movies = () => {
@@ -23,7 +25,7 @@ const Movies = () => {
         fetchPopularMovies().then((movies) => {
             setPopularMovies(movies);
             setLoading(false);
-            
+
         });
     }, []);
 
@@ -53,6 +55,12 @@ const Movies = () => {
             {/* Popular movies section */}
             <View className="flex-col items-center justify-between">
                 <View>
+                    <View className=" flex-wrap content-end   mt-2 h-4 w-2/3  ">
+                        <TouchableOpacity className=" flex-wrap  " onPress={() => handleSignOut(navigation)}>
+                            <AntDesign className="text-red-800" name='login' />
+                            <Text className="text-[#4DABB7] text-center ml-1  text-[12px]">Log out</Text>
+                        </TouchableOpacity>
+                    </View>
                     <Text className="text-[25px] text-[#0B646B] mt-4 mb-5">Popular Movies</Text>
                 </View>
             </View>
