@@ -14,17 +14,17 @@
 
 # Screenshots
 <p float="left">
-    <img src="asset\images\2.png" width="500" >     
-    <img src="asset\images\1.png" width="500" > 
-    <img src="asset\images\3.png" width="500" >     
-    <img src="asset\images\5.png" width="500" >     
-    <img src="asset\images\4.png" width="500" >     
+    <img src="assets\images\2.png" width="500" >     
+    <img src="assets\images\1.png" width="500" > 
+    <img src="assets\images\3.png" width="500" >     
+    <img src="assets\images\5.png" width="500" >     
+    <img src="assets\images\4.png" width="500" >     
 
 </p> 
 
 ### Libs
 
-- [react-navigation](https://reactnavigation.org/docs/getting-started/)
+- [react-navigation](https://reactnavigation.org/docs/getting-startedS/)
 - [react-native-web](https://github.com/react-native-webview/react-native-webview)
 - [react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons)
 - [react-native-animatable](https://www.npmjs.com/package/react-native-animatable)
