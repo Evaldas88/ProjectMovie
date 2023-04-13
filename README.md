@@ -55,6 +55,8 @@ As others projects, you will need some requirements to run:
 * In the terminal post this: 
 
         npm install
+        npm install @unimodules/core --save
+        npm install add @unimodules/react-native-adapter
         
         
 # How to run
