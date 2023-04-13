@@ -54,10 +54,18 @@ As others projects, you will need some requirements to run:
 
 * In the terminal post this: 
 
-        npm install
-        npm install @unimodules/core --save
-        npm install add @unimodules/react-native-adapter
-        
+    * First step
+    
+            npm install
+    * Second step
+            
+            npm install @unimodules/core --save
+    * Third step
+    
+            npm install add @unimodules/react-native-adapternpm 
+    * Fourth step
+    
+            npm install deprecated-react-native-prop-types
         
 # How to run
 
